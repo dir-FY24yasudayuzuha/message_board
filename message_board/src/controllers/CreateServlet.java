@@ -25,7 +25,7 @@ public class CreateServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String _token = request.getParameter("_token");
 		if(_token != null && _token.equals(request.getSession().getId())) {
-		    EntityManager em = DBUtil.creatEntityManager();
+		    EntityManager em = DBUtil.createEntityManager();
 		    em.getTransaction().begin();
 		    
 		    Message m = new Message();

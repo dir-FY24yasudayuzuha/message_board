@@ -22,7 +22,7 @@ public class EditServlet extends HttpServlet {
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 	        throws ServletException, IOException {
-	    var em = DBUtil.creatEntityManager();
+	    var em = DBUtil.createEntityManager();
 	    
 	    var m = em.find(Message.class, Integer.parseInt(request.getParameter("id")));
 		
