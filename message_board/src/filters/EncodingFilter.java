@@ -10,29 +10,25 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpFilter;
 
-
 @WebFilter("/*")
 public class EncodingFilter extends HttpFilter implements Filter {
-       
-   
+
     public EncodingFilter() {
         super();
     }
 
-	
-	public void destroy() {
-	}
+    public void destroy() {
+    }
 
-	
-	public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
-		request.setCharacterEncoding("UTF-8");
-		request.setCharacterEncoding("UTF-8");
-		
-		chain.doFilter(request, response);
-	}
+    public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain)
+            throws IOException, ServletException {
+        request.setCharacterEncoding("UTF-8");
+        response.setCharacterEncoding("UTF-8");
 
-	
-	public void init(FilterConfig fConfig) throws ServletException {
-	}
+        chain.doFilter(request, response);
+    }
+
+    public void init(FilterConfig fConfig) throws ServletException {
+    }
 
 }

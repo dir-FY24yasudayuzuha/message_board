@@ -28,9 +28,13 @@ public class IndexServlet extends HttpServlet {
 		EntityManager em = DBUtil.creatEntityManager();
 		
 		List<Message> messages = em.createNamedQuery("getAllMessages", Message.class).getResultList();
-	    response.getWriter().append(Integer.valueOf(messages.size()).toString());
-	    
 	    em.close();
+		
+		response.getWriter().append(Integer.valueOf(messages.size()).toString());
+	    
+		request.setAttribute("messages", messages);
+		var rd = request.getRequestDispatcher("/WEB-INF/views/messages/index.jsp");
+		rd.forward(request, response);
 	}
 
 }
