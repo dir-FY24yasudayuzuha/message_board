@@ -20,7 +20,7 @@ public class ShowServlet extends HttpServlet {
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		var em = DBUtil.creatEntityManager();
+		var em = DBUtil.createEntityManager();
 		
 		// 該当IDのメッセージ一件のみをデータベースから取得
 		var m = em.find(Message.class, Integer.parseInt(request.getParameter("id")));
